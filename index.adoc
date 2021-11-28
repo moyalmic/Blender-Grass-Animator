@@ -4,7 +4,7 @@
 
 Vytvoření pluginu, který provádí základní detekci hran.
 
-image::img1.jpg[]
+image::img1.jpg[1208, 720]
 
 link:dokumentace1.adoc[Dokumentace 2D úlohy]
 
