@@ -3,7 +3,8 @@
 == 2D
 
 Vytvoření pluginu, který provádí základní detekci hran.
-image::img1.jpg[Informational picture]
+
+image::img1.jpg[]
 
 link:dokumentace1.adoc[Dokumentace 2D úlohy]
 
