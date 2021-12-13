@@ -104,23 +104,28 @@ class GrassAnimator(bpy.types.Operator):
 
 def size_update_func(self, context):
     object_properties = context.scene.object_properties
+    particle_settings = context.scene.grass_plane_object.particle_systems[0].settings.name
     context.scene.grass_plane_object.scale = object_properties.plane_size
     
 def length_update_func(self, context):
     object_properties = context.scene.object_properties
-    context.scene.grass_plane_object.hair_length = object_properties.grass_length
+    particle_settings = context.scene.grass_plane_object.particle_systems[0].settings.name
+    bpy.data.particles[particle_settings].hair_length = object_properties.grass_length
     
 def base_width_update_func(self, context):
     object_properties = context.scene.object_properties
-    context.scene.grass_plane_object.root_radius = object_properties.grass_base_width   
+    particle_settings = context.scene.grass_plane_object.particle_systems[0].settings.name
+    bpy.data.particles[particle_settings].root_radius = object_properties.grass_base_width   
     
 def shape_update_func(self, context):
     object_properties = context.scene.object_properties
-    context.scene.grass_plane_object.brownian_factor = object_properties.grass_shape  
+    particle_settings = context.scene.grass_plane_object.particle_systems[0].settings.name
+    bpy.data.particles[particle_settings].brownian_factor = object_properties.grass_shape  
     
 def clump_update_func(self, context):
     object_properties = context.scene.object_properties
-    context.scene.grass_plane_object.clump_factor = object_properties.clumpyness
+    particle_settings = context.scene.grass_plane_object.particle_systems[0].settings.name
+    bpy.data.particles[particle_settings].clump_factor = object_properties.clumpyness
      
 def density_update_func(self, context):
     object_properties = context.scene.object_properties
@@ -223,6 +228,7 @@ class GrassGenerator(bpy.types.Operator):
     
     def execute(self, context):
         self.generate_plane(context)
+        self.add_grass_material(context)
         return {'FINISHED'}
         
     def generate_plane(self, context):
@@ -243,12 +249,12 @@ class GrassGenerator(bpy.types.Operator):
         bpy.data.particles[particle_settings].clump_factor = object_properties.clumpyness
         
         
-    def average_vector(self, vec):
-        acc = 0
-        for scalar in range(0, len(vec)):
-            acc += scalar
-        acc /= len(vec)
-        return int(acc)
+    def add_grass_material(self, context):
+        new_mat = bpy.data.materials.new("Grass Material")
+        new_mat.diffuse_color = (0.0, 0.065, 0.0, 0.0)
+        
+        context.scene.grass_plane_object.data.materials.append(new_mat)
+        
         
         
     
@@ -282,7 +288,3 @@ def unregister():
         unregister_class(cls)
     bpy.types.VIEW3D_MT_object_animation.remove(anim_menu_func)
     bpy.types.VIEW3D_MT_mesh_add.remove(grass_menu_func)
-    
-    
-if __name__ == "__main__":
-    register()
