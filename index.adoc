@@ -4,8 +4,14 @@
 
 Vytvoření pluginu, který provádí základní detekci hran.
 
-image::img1.jpg[Informational Image, 720]
+image::img1.jpg[2D Informational Image, 720]
 
 link:2D/dokumentace1.adoc[Dokumentace 2D úlohy]
 
 == 3D
+
+Vytvoření pluginu, který vygeneruje a rozanimuje model trávy
+
+image::img2.jpg[3D Informational Image, 720]
+
+link:3D/dokumentace2.adoc[Dokumentace 3D úlohy]
