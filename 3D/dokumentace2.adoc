@@ -7,6 +7,8 @@ Plugin by měl ideálně být schopný zpracovat více druh objektů (napříkla
 
 == Ukázky fungování pluginu
 
+video::imgs/animation_example.mp4[]
+
 Plugin umožňuje jak animaci, tak vytváření travnaté plochy podle paramatrů zadaných uživatelem v panelu Generátoru na pravé straně 3D View okna. Program obsahuje bug, který je podle mého na straně blenderu.
 
 === Základní plocha
