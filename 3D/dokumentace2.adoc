@@ -118,7 +118,7 @@ def generate_plane(self, context):
 ----
 
 == Odkaz na stažení
-Plugin lze stáhnout link:res1.zip[zde].
+Plugin lze stáhnout link:res2.zip[zde].
 
 == Bugy
 * Při prvotním zadání hodnot velikosti plochy se plocha vytvoří pokaždé o velikost 1x1 a až po upravení jedné z hodnot poskočí velikost na správnou hodnotu. Deselect a reselect objektu k propsání hodnot při výtvoru objektu mi nepomohl, a nebyl jsem schopen nic víc o tomto problému najít.
